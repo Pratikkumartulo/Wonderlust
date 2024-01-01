@@ -1,0 +1,171 @@
+<% layout("/layouts/boilerplate") %>
+    <style>
+        a{
+            text-decoration: none;
+        }
+        .icons {
+            display: flex;
+            align-items: center;
+            /* gap: 1.7rem; */
+            justify-content: space-between;
+            width: 90%;
+            /* overflow-x:scroll; */
+        }
+
+        .icon-div {
+            display: flex;
+            gap: 2rem;
+            /* overflow-x: scroll; */
+        }
+
+        .icons::-webkit-scrollbar {
+            display: none;
+        }
+
+        .icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* width: 100px; */
+            /* border: 2px solid black; */
+            color: white;
+            opacity: 0.6;
+            /* white-space:; */
+        }
+
+        .tax {
+            display: none;
+        }
+
+        .icon:hover {
+            opacity: 1;
+        }
+
+        .switches {
+            /* border: 2px solid black; */
+            background-color: #dadada;
+            padding: 5px 3px;
+            border-radius: 20px;
+        }
+
+        @media screen and (max-width: 480px) {
+            .icons {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .icon-div {
+                width: 100%;
+                overflow-x: scroll;
+            }
+        }
+    </style>
+
+    <body>
+        <div class="icons">
+            <a href="/listings/filter/Eatables"><div class="icon-div">
+                <div class="icon">
+                    <i class="fa-solid fa-plate-wheat"></i>
+                    <p>Eatables</p>
+                </div></a>
+                <a href="/listings/filter/Castle"><div class="icon">
+                    <i class="fa-solid fa-chess-rook"></i>
+                    <p>Castle</p>
+                </div></a>
+                <a href="/listings/filter/Golf"><div class="icon">
+                    <i class="fa-solid fa-golf-ball-tee"></i>
+                    <p>Golf</p>
+                </div></a>
+                <a href="/listings/filter/Pools"><div class="icon">
+                    <i class="fa-solid fa-person-swimming"></i>
+                    <p>Pools</p>
+                </div></a>
+                <a href="/listings/filter/Beach"><div class="icon">
+                    <i class="fa-solid fa-umbrella-beach"></i>
+                    <p>Beach</p>
+                </div></a>
+                <a href="/listings/filter/Parks"><div class="icon">
+                    <i class="fa-solid fa-tree"></i>
+                    <p>Parks</p>
+                </div></a>
+                <a href="/listings/filter/Rooms"><div class="icon">
+                    <i class="fa-solid fa-person-shelter"></i>
+                    <p>Rooms</p>
+                </div></a>
+                <a href="/listings/filter/Camp"><div class="icon">
+                    <i class="fa-solid fa-tents"></i>
+                    <p>Camp</p>
+                </div></a>
+                <a href="/listings/filter/Boats"><div class="icon">
+                    <i class="fa-solid fa-ship"></i>
+                    <p>Boats</p>
+                </div></a>
+                <a href="/listings/filter/Play"><div class="icon">
+                    <i class="fa-solid fa-baseball-bat-ball"></i>
+                    <p>Play</p>
+                </div></a>
+                <a href="/listings/filter/Towers"><div class="icon">
+                    <i class="fa-solid fa-tower-observation"></i>
+                    <p>Towers</p>
+                </div></a>
+                <a href="/listings/filter/Mountain"><div class="icon">
+                    <i class="fa-solid fa-mountain"></i>
+                    <p>Mountain</p>
+                </div></a>
+            </div>
+            <div class="switches mb-3">
+                <div class="form-check form-switch switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"
+                        onchange="tax()">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Display Total before tax</label>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <% for(ls of allList){ %>
+                <div class="card" style="width: 18rem;">
+                    <img src="<%= ls.image.url %>" class="card-img-top" alt="Image here.">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%=ls.title %>
+                        </h5>
+                        <p class="card-text">
+                            <%= ls.description %>
+                        </p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Price :&#8377;<%= ls.price.toLocaleString("en-IN")%>&nbsp;&nbsp;<i
+                                    class="tax">+<%= Math.floor(Math.random()*20)+1%>%</i>
+                        </li>
+                        <li class="list-group-item">
+                            <%=ls.location %>
+                        </li>
+                    </ul>
+                    <div class="card-body link-view">
+                        <a href="/listings/<%= ls._id %>" class="card-link">View here</a>
+                    </div>
+                </div>
+                <% } %>
+        </div>
+        <script>
+            let count = 0;
+            let tax = function () {
+                let tax = document.querySelectorAll(".tax");
+                if (count == 0) {
+                    for (tx of tax) {
+                        tx.style.display = "inline";
+
+                    }
+                    count = 1;
+                } else {
+                    for (tx of tax) {
+                        tx.style.display = "none";
+
+                    }
+                    count = 0;
+                }
+            }
+        </script>
+    </body>

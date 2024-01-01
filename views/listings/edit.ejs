@@ -1,0 +1,87 @@
+<% layout("/layouts/boilerplate") %>
+
+    <body>
+        <h1>Edit this post</h1>
+        <div class="row">
+            <form method="post" action="/listings/<%= onedat._id %>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+                <div>
+                    <label for="title" class="form-label">Title :</label>
+                    <input name="title" value="<%= onedat.title %>" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Please choose a Title.
+                      </div>
+                </div>
+
+                <div>
+                    <label for="title" class="form-label">Description :</label>
+                    <textarea name="description" class="form-control" required><%= onedat.description %></textarea>
+                    <div class="invalid-feedback">
+                        Please write a description.
+                      </div>
+                </div>
+
+                <div>
+                    <label for="title" class="form-label">Image :</label>
+                    <input name="image" class="form-control" type="file">
+                    <div class="invalid-feedback">
+                        Please enter a valid Image Link.
+                      </div>
+                </div>
+
+                <div>
+                    <label for="title" class="form-label">Price :</label>
+                    <input name="price" value="<%=onedat.price %>" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Please choose a price.
+                      </div>
+                </div>
+
+                <div>
+                    <label for="title" class="form-label">Location :</label>
+                    <input name="location" value="<%=onedat.location %>" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Please choose a Location.
+                      </div>
+                </div>
+
+                <div>
+                    <label for="title" class="form-label">Country :</label>
+                    <input name="country" value="<%=onedat.country %>" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Please choose a Country.
+                      </div>
+                </div>
+                <h5>Select cateogories</h5>
+                    <div class="container checks">
+                        <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off" value="Eatables" name="eatables">
+                        <label class="btn btn-outline-success" for="btn-check-outlined">Eatables</label>
+                        <input type="checkbox" class="btn-check" id="btn-check-outlined 1" autocomplete="off" value="Castle" name="Castle">
+                        <label class="btn btn-outline-success" for="btn-check-outlined 1">Castles</label>
+                        <input type="checkbox" class="btn-check" id="btn-check-outlined 2" autocomplete="off" value="Golf" name="Golf">
+                        <label class="btn btn-outline-success" for="btn-check-outlined 2">Golf</label>
+                        <input type="checkbox" class="btn-check" id="btn-check-outlined 3" autocomplete="off" value="Pools" name="Pools">
+                        <label class="btn btn-outline-success" for="btn-check-outlined 3">Pools</label>
+                        <input type="checkbox" class="btn-check" id="btn-check-outlined 4" autocomplete="off" value="Beach" name="Beach">
+                        <label class="btn btn-outline-success" for="btn-check-outlined 4">Beach</label>
+                        <input type="checkbox" class="btn-check" id="btn-check-outlined 5" autocomplete="off" value="Parks" name="Parks">
+                        <label class="btn btn-outline-success" for="btn-check-outlined 5">Parks</label>
+                        <input type="checkbox" class="btn-check" id="btn-check-outlined 6" autocomplete="off" value="Rooms" name="Rooms">
+                        <label class="btn btn-outline-success" for="btn-check-outlined 6">Rooms</label>
+                        <input type="checkbox" class="btn-check" id="btn-check-outlined 7" autocomplete="off" value="Camp" name="Camp">
+                        <label class="btn btn-outline-success" for="btn-check-outlined 7">Camp</label>
+                        <input type="checkbox" class="btn-check" id="btn-check-outlined 8" autocomplete="off" value="Boats" name="Boats">
+                        <label class="btn btn-outline-success" for="btn-check-outlined 8">Boats</label>
+                        <input type="checkbox" class="btn-check" id="btn-check-outlined 9" autocomplete="off" value="Play" name="Play">
+                        <label class="btn btn-outline-success" for="btn-check-outlined 9">Play</label>
+                        <input type="checkbox" class="btn-check" id="btn-check-outlined 10" autocomplete="off" value="Towers" name="Towers">
+                        <label class="btn btn-outline-success" for="btn-check-outlined 10">Towers</label>
+                        <input type="checkbox" class="btn-check" id="btn-check-outlined 11" autocomplete="off" value="Mountain" name="Mountain">
+                        <label class="btn btn-outline-success" for="btn-check-outlined 11">Mountain</label>
+                    </div>
+
+
+                <button type="submit" class="btn btn-dark mt-3">Submit</button>
+            </form>
+        </div>
+
+    </body>
